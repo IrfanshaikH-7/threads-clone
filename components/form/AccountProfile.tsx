@@ -48,7 +48,7 @@ const AccountProfile = ({ user, btnTitle }: AccountProfileProps) => {
           bio: user?.bio ? user.bio : "",
         },
       });
-
+        ///handleImage func is just changing the photo to view
       const handleImage = (e: ChangeEvent<HTMLInputElement>, fieldChange: (value: string)=> void) => {
         e.preventDefault();
         const fileReader = new FileReader();
@@ -67,6 +67,7 @@ const AccountProfile = ({ user, btnTitle }: AccountProfileProps) => {
         }
       }
 
+      // Where onSubmit func it is retrieving the current value and updating it in data base  and also setting it to the current value
     const onSubmit = async(values:z.infer<typeof UserValidation>) => {
         
         const blob = values.profile_photo
