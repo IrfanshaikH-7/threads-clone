@@ -27,7 +27,9 @@ function Topbar() {
           </SignedIn>
         </div>
 
-       <OrganizationSwitcher />
+       <OrganizationSwitcher  
+        
+       />
       </div>
     </nav>
   );

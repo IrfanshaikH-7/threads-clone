@@ -19,12 +19,12 @@ export async function updateUser({
     bio,
     image,
     path,
-}:updateUserProps): Promise<void> {
+}: updateUserProps): Promise<void> {
 
     connectToDB(); //connecting to db
     try {
 
-        
+
         await User.findOneAndUpdate(    //  User is a schema and findoneandupdate is a object which takes two parameters
             { id: userId },
             {
@@ -46,4 +46,18 @@ export async function updateUser({
         throw new Error(`Failed to create/update user: ${error.message}`)
     }
 
+}
+
+export async function fetchUser(userId: string) {
+    try {
+        connectToDB();
+        return await User.findOne({ id: userId }
+            //     .populate({
+            //     path: 'communities',
+            //     model: Community
+            // })
+        )
+    } catch (error: any) {
+        throw new Error(`Failed to fetch user: ${error.message}`)
+    }
 }
