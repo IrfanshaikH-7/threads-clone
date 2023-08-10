@@ -19,10 +19,10 @@ const threadSchema = new mongoose.Schema({
     default: Date.now,
   },
   parentId: {
-    type: String,
+    type: String,       //used fro children to link them to there parent thread
   },
   children: [
-    {
+    {       //used for parent thread to push children thread into it
       type: mongoose.Schema.Types.ObjectId,
       ref: "Thread",
     },
