@@ -71,6 +71,7 @@ export const POST = async (request: Request) => {
     try {
       // @ts-ignore
       await createCommunity(
+        
         // @ts-ignore
         id,
         name,
