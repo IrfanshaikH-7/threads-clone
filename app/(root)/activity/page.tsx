@@ -1,4 +1,4 @@
-import { fetchActivity, fetchUser } from "@/lib/actions/user.actions";
+import { getActivity, fetchUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,14 +13,14 @@ const page = async() => {
     redirect('/onboarding')
   }
 
-    const activity = await fetchActivity(userInfo._id);
+    const activity = await getActivity(userInfo._id);
     return (
       <section>
         <h1 className="head-text">Activity</h1>
         <section className="mt-10 flex flex-col gap-5">
         {activity.length > 0 ? (
           <>
-          {activity.map((activity)=> (
+          {activity.map((activity : any)=> (
             <Link
             key={activity._id}
             href={`/thread/${activity.parentId}`}
